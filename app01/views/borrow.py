@@ -56,10 +56,11 @@ def borrow_out_borrow(request, record_id):
 
         try:
             borrow_record = models.BorrowRecord.objects.get(record_id=record_id)
-            if borrow_record.user_id.user_id != user_id or user_role < 2:
+            if borrow_record.user_id.user_id != user_id and user_role < 2:
                 return render(request, 'error.html', {"msg": "用户无权限归还此书"})
         except ObjectDoesNotExist:
             return render(request, 'error.html', {"msg": "借阅记录不存在"})
+            
 
         if borrow_record.status == 1:
             borrow_record.status = 2

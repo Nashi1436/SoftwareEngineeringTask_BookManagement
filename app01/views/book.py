@@ -20,6 +20,17 @@ class BookModelForm(BootStrapModelForm):
 
 def book_register(request):
     """ 注册图书 """
+
+    user_info = request.session.get("info")
+    if not user_info:
+        return render(request, 'error.html', {"msg": "用户未登录"})
+
+    user_id = user_info.get("id")
+    user_role = user_info.get("role")
+
+    if user_role < 2:
+        return render(request, 'error.html', {"msg": "无权限新建图书"})
+
     title = "新建图书"
     if request.method == "GET":
         form = BookModelForm()

@@ -1,0 +1,12 @@
+[0;1;31m×[0m uwsgi.service - uWSGI Emperor service
+     Loaded: loaded (/etc/systemd/system/uwsgi.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: start-limit-hit) since Sun 2024-06-23 13:04:07 CST; 7s ago
+    Process: 26846 ExecStart=/root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi --ini /root/SoftwareEngineeringTask_BookManagement/uwsgi.ini (code=exited, status=0/SUCCESS)
+   Main PID: 26846 (code=exited, status=0/SUCCESS)
+        CPU: 7ms
+
+Jun 23 13:04:07 software-test systemd[1]: uwsgi.service: Scheduled restart job, restart counter is at 5.
+Jun 23 13:04:07 software-test systemd[1]: Stopped uWSGI Emperor service.
+Jun 23 13:04:07 software-test systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185muwsgi.service: Start request repeated too quickly.[0m
+Jun 23 13:04:07 software-test systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185muwsgi.service: Failed with result 'start-limit-hit'.[0m
+Jun 23 13:04:07 software-test systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start uWSGI Emperor service.[0m
