@@ -7,40 +7,39 @@
         <div class="col-md-8">
             <div class="jumbotron">
                 <h2 class="text-center">推荐图书</h2>
-                <div class="row">
+                <div class="row" style="display: flex; flex-wrap: wrap;">
                     {% for book in recommended_books %}
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
+                        <div class="col-sm-6 col-md-4" style="display: flex;">
+                            <div class="thumbnail" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                 <img src="{{ book.img.url }}" alt="{{ book.book_name }}" class="img-thumbnail" style="height: 200px; object-fit: cover;">
-                                <div class="caption" style="line-height: 0.3; font-size: 0.9em;">
+                                <div class="caption" style="line-height: 0.3; font-size: 0.9em; flex: 1;">
                                     <h3 style="font-size: 1.5em;">{{ book.book_name }}</h3>
                                     <p style="font-size: 1.0em;"><strong>作者:</strong> {{ book.author }}</p>
                                     <p style="font-size: 1.0em;"><strong>评分:</strong> {{ book.score }}</p>
                                     <p style="font-size: 1.0em;"><strong>借阅次数:</strong> {{ book.borrow_count }}</p>
                                     <p style="font-size: 1.0em;"><strong>出版社:</strong> {{ book.publisher }}</p>
                                     <p class="btn-container">
-                                        <a class="btn btn-primary btn-xxs" href="/api/borrow/in/{{ obj.book_id }}/">借阅</a>
-                                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/register/{{ obj.book_id }}/">评分评论</a>
-                                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/list/?find_kind=2&q={{ obj.book_name }}">查看评分评论</a>
-                                        <a class="btn btn-primary btn-xxs" href="/api/book/change/{{ obj.book_id }}/">编辑</a>
-                                        <a class="btn btn-danger btn-xxs" href="/api/book/delete/{{ obj.book_id }}/">删除</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/borrow/in/{{ book.book_id }}/">借阅</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/register/{{ book.book_id }}/">评分评论</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/list/?find_kind=2&q={{ book.book_name }}">查看评分评论</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/book/change/{{ book.book_id }}/">编辑</a>
+                                        <a class="btn btn-danger btn-xxs" href="/api/book/delete/{{ book.book_id }}/">删除</a>
                                     </p>
-                                    
-                                    
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             </div>
+            
 
             <div class="jumbotron">
                 <h2 class="text-center">最新借阅记录</h2>
-                <div class="row">
+                <div class="row" style="display: flex; flex-wrap: wrap;">
                     {% for record in latest_borrows %}
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <div class="caption" style="font-size: 0.9em;">
+                        <div class="col-sm-6 col-md-4" style="display: flex;">
+                            <div class="thumbnail" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div class="caption" style="font-size: 0.9em; flex: 1;">
                                     <h3 style="font-size: 1.2em;">{{ record.user_id.username }} 借阅了 {{ record.book_id.book_name }}</h3>
                                     <p style="font-size: 1.0em;"><strong>借阅日期:</strong> {{ record.borrow_date }}</p>
                                     <p style="font-size: 1.0em;"><strong>归还日期:</strong> {{ record.return_date|default:"未归还" }}</p>
@@ -51,6 +50,8 @@
                     {% endfor %}
                 </div>
             </div>
+
+
         </div>
 
         <div class="col-md-4">

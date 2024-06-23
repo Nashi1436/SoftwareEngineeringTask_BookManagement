@@ -1,4 +1,4 @@
-# PythonDjango课程项目
+# 软件工程课程项目
 
 [项目地址](https://github.com/Nashi1436/PythonLessonTask_django_web)[←](https://www.notion.so/PythonDjango-c64625cb85d349dcb71b4557d950f415?pvs=21)
 
