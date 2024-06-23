@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+
+
+{% block css %}
+<style>
+  .custom-border {
+    border: 3px solid #ddd; /* 加粗边框 */
+    padding: 15px;            /* 内边距 */
+    background-color: #b3b3b3; /*灰色背景 */
+    border-radius: 20px;       /* 圆角边框 */
+    margin-top: 0px;         /* 顶部外边距 */
+}
+
+</style>
+
+<style>
+  #container {
+    height: 80vh;
+    border-radius: 10px;       /* 圆角边框 */
+    /* 使用视口高度的80%作为地图容器的高度 */
+    width: 100%;
+    /* 100% 宽度 */
+  }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div style="margin-bottom: 10px;">
+    <!-- margin-left: 10px;margin-right: 10px -->
+
+
+    <a class="btn btn-success" href="/city/map/all">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+      返回全图
+    </a>
+
+    <!-- search -->
+    <div style="float: right;width: 300px;">
+      <form method="get">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="来源监测站" value="{{ search_data }}">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="custom-border">
+    <div id="container"></div>
+</div>
+{% endblock %}
+
+
+
+{% block js %}
+  
+<script src="https://webapi.amap.com/loader.js"></script>
+<script type="text/javascript">
+  window._AMapSecurityConfig = {
+    securityJsCode: "bd6eae0e8d5a3d32d4e18246eb1a059d",
+  };
+  AMapLoader.load({
+    key: "320e95ad07f482d5157c45eedb466bc3",
+    version: "2.0",
+    plugins: ["AMap.Scale"],
+    AMapUI: {
+      version: "1.1",
+      plugins: ["overlay/SimpleMarker"],
+    },
+    Loca: {
+      version: "2.0",
+    },
+  })
+    .then((AMap) => {
+      var map = new AMap.Map('container', {
+        resizeEnable: true
+      });
+
+      var infoWindow = new AMap.InfoWindow();
+      var _marker = new AMap.Marker();
+      "{% for obj in queryset %}"
+          var marker = new AMap.Marker({
+            position: ["{{ obj.jingdu }}", "{{ obj.weidu }}"],
+            map: map
+          });
+          var info = [];
+          info.push("<div style=\"padding:7px 0px 0px 0px;\"><h4>{{ obj.name }}</h4>");
+          info.push("<p class='input-item'>终端数量: {{ obj.count }}</p></div></div>");
+          info.push("<p class='input-item'>经度: {{ obj.jingdu }}   纬度: {{ obj.weidu }}</p>");
+          marker.content = info.join("<br/>");
+          marker.on('click', markerClick);
+          marker.emit('click', { target: marker });
+      "{% endfor %}"
+      function markerClick(e) {
+        infoWindow.setContent(e.target.content);
+        infoWindow.open(map, e.target.getPosition());
+      }
+
+      "{% if local%}"
+          info = []
+          info.push("<div style=\"padding:7px 0px 0px 0px;\"><h4>{{ local.name }}</h4>");
+          info.push("<p class='input-item'>终端数量: {{ local.count }}</p></div></div>");
+          info.push("<p class='input-item'>经度: {{ local.jingdu }}   纬度: {{ local.weidu }}</p>");
+          infoWindow.setContent(info.join("<br/>"))
+          infoWindow.open(map, ["{{ local.jingdu }}", "{{ local.weidu }}"]);
+          map.setZoomAndCenter(6, ["{{ local.jingdu }}", "{{ local.weidu }}"]);
+      "{% else %}"
+          var shanghaiJingdu = 121.4737; // 上海经度
+          var shanghaiWeidu = 31.2304; // 上海纬度
+          map.setZoomAndCenter(2, [shanghaiJingdu, shanghaiWeidu]);
+          infoWindow.setContent("定位于上海");
+          infoWindow.close();
+      "{% endif %}"
+      
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+
+</script>
+  
+{% endblock %}

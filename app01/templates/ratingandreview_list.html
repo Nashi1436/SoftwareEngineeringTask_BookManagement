@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">评分和评论</h2>
+    <div style="margin-bottom: 10px" class="clearfix">
+        <a class="btn btn-success" href="/api/book/list/">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            去评分和评论
+        </a>
+
+        <!-- Modify here to use session username as search data -->
+        <a class="btn btn-success" href="/api/ratingandreview/list/?find_kind=1&status=1&q={{ request.session.info.name }}">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            我的评分评论
+        </a>
+
+        <div style="float: right;">
+            <form method="get" class="form-inline">
+                <div class="input-group">
+                    <div class="form-group">
+                        <select name="find_kind" class="form-control">
+                            <option value="0" {% if find_kind == 0 %}selected{% endif %}>所有字段</option>
+                            <option value="1" {% if find_kind == 1 %}selected{% endif %}>用户</option>
+                            <option value="2" {% if find_kind == 2 %}selected{% endif %}>图书</option>
+                            <option value="3" {% if find_kind == 3 %}selected{% endif %}>评论</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="q" class="form-control" placeholder="关键字" value="{{ search_data }}">
+                    </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            评分和评论列表
+        </div>
+        <!-- Table -->
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th style="width: 3%;">ID</th>
+                <th style="width: 7%;">用户</th>
+                <th style="width: 7%;">图书</th>
+                <th style="width: 10%;">图书封面</th>
+                <th style="width: 5%;">评分</th>
+                <th style="width: 45%;">评论</th>
+                <th style="width: 15%;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in queryset %}
+                <tr>
+                    <td>{{ obj.record_id }}</td>
+                    <td>{{ obj.user_id.username }}</td>
+                    <td>{{ obj.book_id.book_name }}</td>
+                    <td>
+                        <img src="{{ obj.book_id.img.url }}" style="height: 80px;">
+                    </td>
+                    <td>{{ obj.rating }}</td>
+                    <td>{{ obj.review }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/change/{{ obj.record_id }}/">编辑</a>
+                        <a class="btn btn-danger btn-xxs" href="/api/ratingandreview/delete/{{ obj.record_id }}/">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <ul class="pagination">
+        {{ page_string }}
+    </ul>
+</div>
+{% endblock %}

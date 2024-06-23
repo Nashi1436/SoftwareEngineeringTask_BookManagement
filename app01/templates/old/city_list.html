@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-success" href="/city/add/">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                添加监测站
+            </a>
+
+            <div style="float: right;width: 300px;">
+                <form method="get">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="关键字"
+                               value="{{ search_data }}">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                      </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                监测站列表
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <!--for field in obj._meta.fields 
+                        <th>{{ field.field.name }}</th>
+                        <th>{{ field.verbose_name }}</th>
+                        field_value = getattr(obj, field_name)
+                        field_values[field_name] = field_value
+                    endfor  -->
+
+                    <th>ID</th>
+                    <th>监测站图片</th>
+                    <th>名称</th>
+                    <th>终端数量</th>
+                    <th>经纬度</th>
+
+                    <th>联系人/手机/信息</th>    
+                    <!-- <th>联系人手机</th>
+                    <th>联系人信息</th> -->
+
+                    <th>采集当前数据</th>
+                    <th>具体位置显示</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+                        <th>{{ obj.id }}</th>
+                        <td>
+                            <img src="/media/{{ obj.img }}" style="height: 80px;">
+                        </td>
+                        <td>{{ obj.name }}</td>
+                        <td>{{ obj.count }}</td>
+                        <td>{{ obj.jingdu }}       {{ obj.weidu }}</td>
+                        <td>{{ obj.linkuser }}/{{ obj.linkphone}}/{{ obj.linkpath}}</td>
+
+
+                        <!-- Add a link to the details page, replace 'your_detail_url_name' with your actual URL name -->
+                        <td>
+                            <a class="btn btn-success btn-xs" href="/catch/{{ obj.id }}/capture/">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                    采集信息
+                            </a>
+                        </td>
+
+
+                        <td>
+                            <a class="btn btn-success btn-xs" href="/city/{{ obj.id }}/map/">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                    查看详情
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/city/{{ obj.id }}/edit/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/city/{{ obj.id }}/delete/">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"> {{ title }} </h3>
+            </div>
+            <div class="panel-body">
+                <form method="post" novalidate >
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            <span style="color: red;">{{ field.errors.0 }}</span>
+                        </div>
+                    {% endfor %}
+                    
+
+                    <button type="submit" class="btn btn-primary">提 交</button>
+                </form>
+
+                
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js' %}"></script>
+    <script>
+        $(function () {
+            // $('#datetime').datepicker({
+            //     format: 'yyyy-mm-dd',
+            //     startDate: '0',
+            //     language: "zh-CN",
+            //     autoclose: true
+            // });
+            // $('.datepicker').datepicker({
+            //     format: 'yyyy-mm-dd',   // 设置日期格式
+            //     startDate: '0d',        // 设置可以选择的起始日期
+            //     language: 'zh-CN',      // 设置语言为中文
+            //     autoclose: true,        // 选择后自动关闭
+            //     todayHighlight: true,   // 高亮今天的日期
+            //     clearBtn: true,         // 显示清除按钮
+            //     forceParse: false       // 如果为false，非格式化日期将不会自动格式化
+            // });
+            // $('#datetime').datepicker({
+            //         format: 'yyyy-mm-dd hh:ii:ss', // 设置日期和时间格式，包含秒
+            //         // startDate: new Date(),      // 设置可以选择的起始日期时间
+            //         language: 'zh-CN',            // 设置语言为中文
+            //         autoclose: true,              // 选择后自动关闭
+            //         todayBtn: true,               // 显示今天按钮
+            //         minuteStep: 5,                // 时间选择的分钟步长
+            //         secondStep: 5,                // 时间选择的秒钟步长
+            //         pickerPosition: "bottom-left", // 选择器的位置
+            //         forceParse: false             // 如果为false，非格式化日期时间将不会自动格式化
+            //     });
+
+
+        })
+    </script>
+{% endblock %}

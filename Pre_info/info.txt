@@ -1,0 +1,6 @@
+{
+    "secret_key": "django-insecure-hkrj5qe6)4-oe)g&+s-_)90r8$$fk_*a1w33=2wikt4!^4_h6c",
+    "root_user": "root",
+    "root_password": "qweqwe",
+    "root_password_secret": "1cc8e2d6ed383afdfa0159fc2e32ccb3"
+}

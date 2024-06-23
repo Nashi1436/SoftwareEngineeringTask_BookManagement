@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=3306
+      - DJANGO_DB_NAME=djangotest
+      - DJANGO_DB_USER=root
+      - DJANGO_DB_PASSWORD=qweqwe
+
+  db:
+    image: mysql:8.0.35
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=qweqwe
+      - MYSQL_DATABASE=djangotest
+    ports:
+      - "3307:3306"
+
+volumes:
+  mysql_data:

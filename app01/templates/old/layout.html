@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+
+        /* 平板设备的媒体查询 */
+        @media (min-width: 768px) and (max-width: 991px) {
+            /* 可以在这里为平板设备添加特定样式 */
+        }
+
+        /* 手机设备的媒体查询 */
+        @media (max-width: 767px) {
+            .navbar-header {
+                float: none;
+            }
+            .navbar-toggle {
+                display: block;
+            }
+            .navbar-collapse {
+                border-top: 1px solid transparent;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+            }
+            .navbar-collapse.collapse {
+                display: none!important;
+            }
+            .navbar-nav {
+                float: none!important;
+                margin: 7.5px -15px;
+            }
+            .navbar-nav>li {
+                float: none;
+            }
+            .navbar-nav>li>a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+    {% block css %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/homepage/">图书管理系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">账户管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/list/">管理员账户</a></li>
+                        <li><a href="/depart/list/">部门管理</a></li>
+                        <li><a href="/user/list/">用户管理</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="/chart/list/">数据统计</a></li>
+                <li><a href="/city/list/">监测站</a></li>
+                <li><a href="/catch/list/">采集信息</a></li>
+                <li><a href="/city/map/all">全图监测站</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        {% if request.session.info.name %}
+                            {{ request.session.info.name }}
+                        {% else %}
+                            访客
+                        {% endif %}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if request.session.info.name %}
+                            <li><a href="/admin/list/?q={{ request.session.info.name }}">个人资料</a></li>
+                            <li><a href="/admin/list/?q={{ request.session.info.name }}">我的信息</a></li>
+                        {% else %}
+                            <li><a href="#">访客状态只能浏览</a></li>
+                        {% endif %}
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            {% if request.session.info.name %}
+                                <a href="/logout/">注销</a>
+                            {% else %}
+                                <a href="/login/">登录</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div>
+    {% block content %}{% endblock %}
+</div>
+
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

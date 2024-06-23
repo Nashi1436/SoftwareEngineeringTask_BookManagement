@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <div style="margin-bottom: 10px" class="clearfix">
+            <a class="btn btn-success" href="/api/book/register/">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新建图书
+            </a>
+            
+            <!-- Modify here to use session username as search data -->
+            <a class="btn btn-success" href="/api/borrow/list/?find_kind=1&status=1&q={{ request.session.info.name }}">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                我要还书
+            </a>
+
+            <!-- Modify here to use session username as search data -->
+            <a class="btn btn-success" href="/api/ratingandreview/list/?find_kind=1&status=1&q={{ request.session.info.name }}">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                我的评分评论
+            </a>
+
+
+            <div style="float: right;">
+                <form method="get" class="form-inline">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <select name="find_kind" class="form-control">
+                                <option value="0" {% if find_kind == 0 %}selected{% endif %}>所有字段</option>
+                                <option value="1" {% if find_kind == 1 %}selected{% endif %}>图书名</option>
+                                <option value="2" {% if find_kind == 2 %}selected{% endif %}>作者</option>
+                                <option value="3" {% if find_kind == 3 %}selected{% endif %}>出版社</option>
+                                <option value="4" {% if find_kind == 4 %}selected{% endif %}>分类</option>
+                                <option value="5" {% if find_kind == 5 %}selected{% endif %}>库存数量</option>
+                                <option value="6" {% if find_kind == 6 %}selected{% endif %}>借阅次数</option>
+                                <option value="7" {% if find_kind == 7 %}selected{% endif %}>评分</option>
+                                <option value="8" {% if find_kind == 8 %}selected{% endif %}>ID</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="q" class="form-control" placeholder="关键字" value="{{ search_data }}">
+                        </div>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            
+
+        </div>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                图书列表
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>图书图片</th>
+                    <th>图书名</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>分类</th>
+                    <th>库存数量</th>
+                    <th>借阅次数</th>
+                    <th>评分</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+                        <th>{{ obj.book_id }}</th>
+                        <td>
+                            <img src="{{ obj.img.url }}" style="height: 80px;">
+                        </td>
+                        <td>{{ obj.book_name }}</td>
+                        <td>{{ obj.author }}</td>
+                        <td>{{ obj.publisher }}</td>
+                        <td>{{ obj.category }}</td>
+                        <td>{{ obj.stock_quantity }}</td>
+                        <td>{{ obj.borrow_count }}</td>
+                        <td>{{ obj.score }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/api/borrow/in/{{ obj.book_id }}/">借阅</a>
+                            <a class="btn btn-primary btn-xs" href="/api/ratingandreview/register/{{ obj.book_id }}/">评分评论</a>
+                            <a class="btn btn-primary btn-xs" href="/api/ratingandreview/list/?find_kind=2&q={{ obj.book_name }}">查看评分评论</a>
+                            <a class="btn btn-primary btn-xs" href="/api/book/change/{{ obj.book_id }}/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/api/book/delete/{{ obj.book_id }}/">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+    </div>
+{% endblock %}

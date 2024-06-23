@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}图书管理系统{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+        .thumbnail {
+            text-align: center;
+        }
+        .panel-heading {
+            background-color: #f5f5f5;
+            border-color: #ddd;
+        }
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #337ab7;
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #5cb85c;
+        }
+        h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0ad4e;
+        }
+        .jumbotron {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+        }
+        .panel {
+            margin-top: 20px;
+        }
+        .panel-heading h2 {
+            margin: 0;
+        }
+        .btn-xxs {
+            padding: 2px 5px;
+            font-size: 10px;
+            line-height: 1.5;
+            border-radius: 3px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;  /* Adjust the gap to increase/decrease spacing between wrapped items */
+        }
+        
+        
+
+        .btn-container a {
+            margin-bottom: 1px;  /* Adjust the margin to increase/decrease spacing between lines */
+        }
+
+        .btn-container-b {
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+              /* Adjust the gap to increase/decrease spacing between wrapped items */
+        }
+        
+        .btn-container-b a {
+            margin-bottom: 1px;  /* Adjust the margin to increase/decrease spacing between lines */
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+    </style>
+    
+    {% block css %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">图书管理系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">书籍推荐 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/api/recommendations/push_random/">随机推荐</a></li>
+                        <li><a href="/api/recommendations/push_score/">评分推荐</a></li>
+                        <li><a href="/api/recommendations/push_count/">借阅推荐</a></li>
+                    </ul>
+                </li>
+                <li><a href="/api/user/list/">用户列表</a></li>
+                <li><a href="/api/book/list/">图书列表</a></li>
+                <li><a href="/api/borrow/list/">借阅记录</a></li>
+                <li><a href="/api/ratingandreview/list/">评分评论</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        {% if request.session.info.name %}
+                            {{ request.session.info.name }}
+                        {% else %}
+                            访客
+                        {% endif %}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if request.session.info.name %}
+                            <li><a href="/api/user/list/?q={{ request.session.info.name }}">个人资料</a></li>
+                            <li><a href="/api/user/list/?q={{ request.session.info.name }}">我的信息</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/api/borrow/list/?find_kind=1&status=1&q={{ request.session.info.name }}">我要还书</a></li>
+                            <li><a href="/api/borrow/list/?find_kind=1&q={{ request.session.info.name }}">借阅记录</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/api/ratingandreview/list/?find_kind=1&status=1&q={{ request.session.info.name }}">我的评分评论</a></li>
+                        {% else %}
+                            <li><a href="#">访客状态只能浏览</a></li>
+                        {% endif %}
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

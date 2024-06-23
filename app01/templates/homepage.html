@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">欢迎来到图书管理系统</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <h2 class="text-center">推荐图书</h2>
+                <div class="row">
+                    {% for book in recommended_books %}
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="{{ book.img.url }}" alt="{{ book.book_name }}" class="img-thumbnail" style="height: 200px; object-fit: cover;">
+                                <div class="caption" style="line-height: 0.3; font-size: 0.9em;">
+                                    <h3 style="font-size: 1.5em;">{{ book.book_name }}</h3>
+                                    <p style="font-size: 1.0em;"><strong>作者:</strong> {{ book.author }}</p>
+                                    <p style="font-size: 1.0em;"><strong>评分:</strong> {{ book.score }}</p>
+                                    <p style="font-size: 1.0em;"><strong>借阅次数:</strong> {{ book.borrow_count }}</p>
+                                    <p style="font-size: 1.0em;"><strong>出版社:</strong> {{ book.publisher }}</p>
+                                    <p class="btn-container">
+                                        <a class="btn btn-primary btn-xxs" href="/api/borrow/in/{{ obj.book_id }}/">借阅</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/register/{{ obj.book_id }}/">评分评论</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/ratingandreview/list/?find_kind=2&q={{ obj.book_name }}">查看评分评论</a>
+                                        <a class="btn btn-primary btn-xxs" href="/api/book/change/{{ obj.book_id }}/">编辑</a>
+                                        <a class="btn btn-danger btn-xxs" href="/api/book/delete/{{ obj.book_id }}/">删除</a>
+                                    </p>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="jumbotron">
+                <h2 class="text-center">最新借阅记录</h2>
+                <div class="row">
+                    {% for record in latest_borrows %}
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <div class="caption" style="font-size: 0.9em;">
+                                    <h3 style="font-size: 1.2em;">{{ record.user_id.username }} 借阅了 {{ record.book_id.book_name }}</h3>
+                                    <p style="font-size: 1.0em;"><strong>借阅日期:</strong> {{ record.borrow_date }}</p>
+                                    <p style="font-size: 1.0em;"><strong>归还日期:</strong> {{ record.return_date|default:"未归还" }}</p>
+                                    <p style="font-size: 1.0em;"><strong>状态:</strong> {{ record.get_status_display }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            {% if user %}
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h3>个人信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>用户名:</strong> {{ user.username }}</p>
+                        <p><strong>邮箱:</strong> {{ user.email }}</p>
+                        <p><strong>电话:</strong> {{ user.phone }}</p>
+                        <p><strong>注册日期:</strong> {{ user.registration_date }}</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h3>我的评分评论</h3>
+                    </div>
+                    <div class="panel-body">
+                        {% if user_reviews %}
+                            <ul class="list-group">
+                                {% for review in user_reviews %}
+                                    <li class="list-group-item">
+                                        <strong>{{ review.book_id.book_name }}:</strong> {{ review.rating }} 分
+                                        <p>{{ review.review }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>没有评分和评论</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-info text-center">
+                    请<a href="/login/">登录</a>以查看个人信息和评论
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

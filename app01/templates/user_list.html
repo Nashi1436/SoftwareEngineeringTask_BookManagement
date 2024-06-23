@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-center">用户列表</h2>
+        <div style="margin-bottom: 10px" class="clearfix">
+            <a class="btn btn-success" href="/api/user/register/">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新建用户
+            </a>
+
+            <!-- Modify here to use session username as search data -->
+            <a class="btn btn-success" href="/api/borrow/list/?find_kind=1&role=1&q={{ request.session.info.name }}">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                我要还书
+            </a>
+
+            <!-- Modify here to use session username as search data -->
+            <a class="btn btn-success" href="/api/ratingandreview/list/?find_kind=1&role=1&q={{ request.session.info.name }}">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                我的评分评论
+            </a>
+
+
+            <div style="float: right;">
+                <form method="get" class="form-inline">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <select name="find_kind" class="form-control">
+                                <option value="0" {% if find_kind == 0 %}selected{% endif %}>所有字段</option>
+                                <option value="1" {% if find_kind == 1 %}selected{% endif %}>用户</option>
+                                <option value="2" {% if find_kind == 2 %}selected{% endif %}>邮箱</option>
+                                <option value="3" {% if find_kind == 3 %}selected{% endif %}>联系电话</option>
+                                <option value="4" {% if find_kind == 4 %}selected{% endif %}>注册日期</option>
+                                <option value="5" {% if find_kind == 5 %}selected{% endif %}>ID</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="role" class="form-control">
+                                <option value="" {% if role_filter == "" %}selected{% endif %}>所有角色</option>
+                                <option value="1" {% if role_filter == "1" %}selected{% endif %}>普通用户</option>
+                                <option value="2" {% if role_filter == "2" %}selected{% endif %}>管理员</option>
+                                <option value="3" {% if role_filter == "3" %}selected{% endif %}>ROOT</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="q" class="form-control" placeholder="关键字" value="{{ search_data }}">
+                        </div>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                用户列表
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>联系电话</th>
+                    <th>注册日期</th>
+                    <th>角色</th>
+                    <th>重置密码</th>
+                    <th>操作</th>
+                    <!-- <th>密码密文</th> -->
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+                        <th>{{ obj.user_id }}</th>
+                        <td>{{ obj.username }}</td>
+                        <td>{{ obj.email }}</td>
+                        <td>{{ obj.phone }}</td>
+                        <td>{{ obj.registration_date }}</td>
+                        <td>{{ obj.get_role_display }}</td>
+                        <!-- <td>{{ obj.password }}</td> -->
+                        <td>
+                            <a href="/api/user/reset/{{ obj.user_id }}/">重置密码</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/api/borrow/list/?find_kind=1&status=1&q={{ request.session.info.name }}">查看借阅记录</a>
+                            <a class="btn btn-primary btn-xs" href="/api/ratingandreview/list/?find_kind=1&status=1&q={{ request.session.info.name }}">查看评分评论</a>
+                            <a class="btn btn-primary btn-xs" href="/api/user/change/{{ obj.user_id }}/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/api/user/delete/{{ obj.user_id }}/">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+    </div>
+{% endblock %}
