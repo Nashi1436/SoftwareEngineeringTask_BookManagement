@@ -16831,3 +16831,290 @@ spawned uWSGI worker 1 (pid: 26629, cores: 2)
 spawned uWSGI worker 2 (pid: 26630, cores: 2)
 spawned uWSGI worker 3 (pid: 26632, cores: 2)
 spawned uWSGI worker 4 (pid: 26633, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:31:44 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x5616908628d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5616908628d0 pid: 26833 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 26833)
+spawned uWSGI worker 1 (pid: 26834, cores: 2)
+spawned uWSGI worker 2 (pid: 26835, cores: 2)
+spawned uWSGI worker 3 (pid: 26837, cores: 2)
+spawned uWSGI worker 4 (pid: 26838, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:33:15 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x564bd16d78d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x564bd16d78d0 pid: 27055 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27055)
+spawned uWSGI worker 1 (pid: 27056, cores: 2)
+spawned uWSGI worker 2 (pid: 27057, cores: 2)
+spawned uWSGI worker 3 (pid: 27058, cores: 2)
+spawned uWSGI worker 4 (pid: 27060, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:34:45 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x562e233e78d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x562e233e78d0 pid: 27272 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27272)
+spawned uWSGI worker 1 (pid: 27273, cores: 2)
+spawned uWSGI worker 2 (pid: 27274, cores: 2)
+spawned uWSGI worker 3 (pid: 27276, cores: 2)
+spawned uWSGI worker 4 (pid: 27277, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:36:16 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x55606ae8e8d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55606ae8e8d0 pid: 27635 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27635)
+spawned uWSGI worker 1 (pid: 27636, cores: 2)
+spawned uWSGI worker 2 (pid: 27637, cores: 2)
+spawned uWSGI worker 3 (pid: 27638, cores: 2)
+spawned uWSGI worker 4 (pid: 27640, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:37:46 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x563bc3a9d8d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x563bc3a9d8d0 pid: 28180 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 28180)
+spawned uWSGI worker 1 (pid: 28181, cores: 2)
+spawned uWSGI worker 2 (pid: 28182, cores: 2)
+spawned uWSGI worker 3 (pid: 28183, cores: 2)
+spawned uWSGI worker 4 (pid: 28185, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:39:17 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x55bbeaa6b8d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55bbeaa6b8d0 pid: 28749 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 28749)
+spawned uWSGI worker 1 (pid: 28750, cores: 2)
+spawned uWSGI worker 2 (pid: 28751, cores: 2)
+spawned uWSGI worker 3 (pid: 28752, cores: 2)
+spawned uWSGI worker 4 (pid: 28754, cores: 2)
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 23 19:40:47 2024] ***
+compiled with version: 11.4.0 on 23 June 2024 01:30:03
+os: Linux-5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024
+nodename: software-test
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/SoftwareEngineeringTask_BookManagement
+writing pidfile to uwsgi.pid
+detected binary path: /root/SoftwareEngineeringTask_BookManagement/myenv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/SoftwareEngineeringTask_BookManagement
+your processes number limit is 13937
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...1516 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+Python main interpreter initialized at 0x55ec8b4548d0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55ec8b4548d0 pid: 29092 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 29092)
+spawned uWSGI worker 1 (pid: 29093, cores: 2)
+spawned uWSGI worker 2 (pid: 29094, cores: 2)
+spawned uWSGI worker 3 (pid: 29095, cores: 2)
+spawned uWSGI worker 4 (pid: 29096, cores: 2)
