@@ -1,48 +1,37 @@
 # 软件工程课程项目
 
-[项目地址](https://github.com/Nashi1436/PythonLessonTask_django_web)[←](https://www.notion.so/PythonDjango-c64625cb85d349dcb71b4557d950f415?pvs=21)
+[项目地址←](https://github.com/Nashi1436/SoftwareEngineeringTask_BookManagement)
 
-[文档更新地址←](https://www.notion.so/PythonDjango-c64625cb85d349dcb71b4557d950f415?pvs=21)
+[文档更新地址←](https://www.notion.so/50a2fa09b02348db912395f38777c737?pvs=21)
 
-[预览地址](http://121.36.46.222/homepage/)[←](https://www.notion.so/PythonDjango-c64625cb85d349dcb71b4557d950f415?pvs=21)[(已设置为service服务)(2024.1.22后服务器关闭)](http://121.36.46.222/homepage/)
-
-[AI实践←](https://www.notion.so/AI-1a38a869df7d4052aec8f448b1ce5db0?pvs=21)
+[预览地址](http://121.36.46.222/homepage/)[←](https://www.notion.so/PythonDjango-86cd48972fe44f9e805c8bc5c805d6be?pvs=21)[(已设置为service服务)(2024.1.22后服务器关闭)](http://121.36.46.222/homepage/)
 
 ## **项目描述**
 
 ---
 
-基于 `django` , `bootstrap3` , `html` , `css` ,  `jQuery` , `Mysql` , `orm`开发的:
+基于`django` , `bootstrap3` , `html` , `css` ,  `jQuery` , `Mysql` , `orm`开发的: 
 
-`青藏高原环境监测站数据管理系统`
+`青藏高原环境监测站数据管理系统` 
 
 本地或服务器部署 浏览器访问使用
 
 ### **功能简述**
 
-- 使用 `mysql`数据库
+- 使用`mysql`数据库
 - 数据增删查改功能
-- 对管理员 用户 部门 监测站 采集信息 的支持
-- 数据列表显示分页
-- 数据 `echart`可视化
-- 地图网点定位
-- 一键采集所有监测站网点信息
 - 访客访问的支持，只能查看数据，修改数据跳转登录
-- 数据修改采用 `bootstrap3`的form表单修改功能
-- 监测站支持图片项， 带有文件上传功能
+- 数据修改采用`bootstrap3`的form表单修改功能
 - `middleware`中间层auth代理，控制访客访问
-- `Cookiehe`和 `Session`
+- `Cookiehe`和`Session`
 - 登录验证码
-- 时间选择组件
-- 用户的所属部门与部门关联
 - 跳转主页
 - 错误信息支持
 - 修改数据不合法保留已输入数据
-- excel form上传（前端不可见）
 - 调用资源本地化
 - 内部密码安全加密
 - 对手机端适配
-- 使用 `django.db.models`自动数据配置
+- 使用`django.db.models`自动数据配置
 - 各个界面之间关联
 - 代码内部注释
 - `python脚本`自动创建数据表数据库，初始化网站root管理员
@@ -50,7 +39,6 @@
 
 ### 待实现
 
-- 文件管理 文件预览
 - 对小窗的更好适配
 
 ## **部署|配置|访问**
@@ -73,9 +61,13 @@ Docker Compose version v2.23.3-desktop.2
 pip install -r requirements.txt
 ```
 
-在项目根目录下运行 `Pre_work/pre_run.py`脚本
+在项目根目录下运行`Pre_work/pre_run.py`脚本
 
-自动创建数据库数据表添加网站管理员 ,具体查看调试信息和代码内注释
+自动创建数据库数据表添加网站管理员 ,具体查看调试信息和代码内注释 
+
+修改框中数据库配置
+
+![README.assets/Untitled.png](README.assets/Untitled.png)
 
 默认网站管理员账号：`root`   密码：`qweqwe`
 
@@ -85,7 +77,7 @@ python Pre_work/pre_run.py
 
 成功如下：
 
-![AD8[0%NSOF~3]BFV301L9B.png](README.assets/AD80NSOF3BFV301L9B.png)
+![Untitled](README.assets/Untitled%201.png)
 
 运行
 
@@ -95,7 +87,7 @@ python manage.py runserver
 
 ### 手动部署2
 
-安装环境 JavaScript Copy Caption pip install -r requirements.txt
+安装环境 JavaScript Copy Caption pip install -r requirements.txt 
 
 ```jsx
 安装环境 JavaScript Copy Caption pip install -r requirements.txt 
@@ -105,7 +97,7 @@ python manage.py runserver
 
 修改框中数据库配置
 
-![R15B25919FXEZL5C](./README.assets/R15B25919FXEZL5C.png)
+![Untitled](README.assets/Untitled.png)
 
 初始化数据库
 
@@ -116,9 +108,9 @@ python manage.py migrate
 
 数据库中手动添加网站管理员在admin表单下
 
-（注意插入的密码为下面目录 `md5`函数加密后的字符串)
+（注意插入的密码为下面目录`md5`函数加密后的字符串)
 
-![ALMRCTHH6Q~V2ZPWMNN{604.png](README.assets/ALMRCTHH6QV2ZPWMNN604.png)
+![Untitled](README.assets/Untitled%202.png)
 
 运行
 
@@ -127,6 +119,10 @@ python manage.py runserver
 ```
 
 ### Docker一键部署：
+
+修改框中数据库配置
+
+![Untitled](README.assets/Untitled.png)
 
 根目录下输入下面指令一键部署
 
@@ -158,19 +154,15 @@ docker-compose up --build
 
 ### 主要文件逻辑
 
-![DGSU2815UY2I_YINQU3_tmb](./README.assets/DGSU2815UY2I_YINQU3_tmb.png)
+![~[DGS}U2815U(Y2I_YINQU3_tmb.png](README.assets/DGSU2815U(Y2I_YINQU3_tmb.png)
 
 ### 网络浏览逻辑
 
 ![N`Y$Y_6@6KW8ZK@W{QI7NJN_tmb.png](README.assets/NYY_66KW8ZKWQI7NJN_tmb.png)
 
-### 功能逻辑
-
-![DYTGPITP2BLOR3AFY_tmb](./README.assets/DYTGPITP2BLOR3AFY_tmb.png)
-
 ### 各模块数据处理逻辑
 
-![HODFR_F_PMHQ9A9LWTOGC_tmb](./README.assets/HODFR_F_PMHQ9A9LWTOGC_tmb.png)
+![HODFR(_F_PMHQ9A9(LWTOGC_tmb.png](README.assets/HODFR(_F_PMHQ9A9(LWTOGC_tmb.png)
 
 ### 文件树目录
 
@@ -181,7 +173,7 @@ DJANGO
 │  entrypoint.sh           # Docker 容器启动时执行的 Shell 脚本
 │  manage.py               # Django 的用于管理任务的命令行工具
 │  Monaco.ttf              # 字体文件
-│  README.assets.md               # 包含项目信息的 Markdown 文件
+│  README.md               # 包含项目信息的 Markdown 文件
 │  requirements.txt        # 项目所需的 Python 依赖列表
 │  update.md               # 关于项目更新的文档或笔记
 │  
@@ -255,50 +247,28 @@ DJANGO
 
 ### **团队成员**
 
-- ...
+- 
 
 ### **角色分配**
 
-- ...
+- 
 
 ### **开发规划**
-
-12月
-
-11号-17号：相关知识学习
-
-18号：参考搜索
-
-19号-21号：主体部分
-
-22号-23号：细节完善，上服务器
-
-24号：docker配置，文档
 
 …
 
 ### **开发实践**
 
-- 配置密码时 数据库手动添加的qweqwe，用的密文也就是登录不进去、
-- ![1DND6LDN6CBZQO6G](./README.assets/1DND6LDN6CBZQO6G.png)
-
-  ```python
-  注释掉重定向强进 新建的可以进去
-
-  最后发现可能是不小心qweqwe打成qwe了 ，但之前调式代码里用的特判是qweqwe
-  ```
-- 配置环境太花时间了 经常系统还各种不兼容
-- 有个cenots服务器版本太低没法跑成功初始化数据库的python脚本
-  只能手动添加
-- 用的上海的时区导致传译出问题调几个小时 USE_TZ得改False
-
-  ![0SZEFB44VN6AESH](./README.assets/0SZEFB44VN6AESH.png)
-- Dockerfile 里面用的创建脚本还不支持全平台
-
-  ![31UF76S_W4OFWRC](./README.assets/31UF76S_W4OFWRC.png)
-- Django项目上云不熟悉
-  允许访问：`ALLOWED_HOSTS = [‘*’]`
-  时区：`TIME_ZONE = 'Asia/Shanghai’`
+- 
+  
+    ![))1DN%(]D6LDN6C$BZ`QO6G.png](README.assets/))1DN(D6LDN6CBZQO6G.png)
+    
+    ```python
+    注释掉重定向强进 新建的可以进去
+    
+    最后发现可能是不小心qweqwe打成qwe了 ，但之前调式代码里用的特判是qweqwe
+    ```
+    
 
 ## **联系方式**
 
@@ -308,85 +278,66 @@ DJANGO
 
 ### **技术支持**
 
-[提交issue](https://github.com/Nashi1436/PythonLessonTask_django_web/issues)
+[提交issue](https://github.com/Nashi1436/SoftwareEngineeringTask_BookManagement/issues)
 
 ## **界面展示**
 
 ---
 
-### 用户登陆模块
+## 主页
 
-![wps33.jpg](README.assets/wps33.jpg)
+![Untitled](README.assets/Untitled%203.png)
 
-### 数据统计展示模块
+### 用户登陆
 
-![wps34.jpg](README.assets/wps34.jpg)
+![Untitled](README.assets/Untitled%204.png)
 
-### 监测站管理模块
+### 推荐书籍
 
-![wps36.jpg](README.assets/wps36.jpg)
+![Untitled](README.assets/Untitled%205.png)
 
-![wps20.jpg](README.assets/wps20.jpg)
+### 用户列表
 
-![wps19.jpg](README.assets/wps19.jpg)
+![Untitled](README.assets/Untitled%206.png)
 
-### 数据采集模块（允许分类查询）
+### 图书列表
 
-![wps4.jpg](README.assets/wps4.jpg)
+![Untitled](README.assets/Untitled%207.png)
 
-### 管理员模块
+### 借阅记录
 
-![wps8.jpg](README.assets/wps8.jpg)
+![Untitled](README.assets/Untitled%208.png)
 
-### 部门模块
+### 评分评论
 
-![wps10.jpg](README.assets/wps10.jpg)
+![Untitled](README.assets/Untitled%209.png)
 
-### 全图监测站模块
+### 新建用户
 
-![wps25.jpg](README.assets/wps25.jpg)
+![Untitled](README.assets/Untitled%2010.png)
 
-![wps26.jpg](README.assets/wps26.jpg)
+### 新建图书
 
-![wps27.jpg](README.assets/wps27.jpg)
+![Untitled](README.assets/Untitled%2011.png)
 
-### 页脚
+### 错误信息
 
-![wps23.jpg](README.assets/wps23.jpg)
-
-其他平台
+![Untitled](README.assets/Untitled%2012.png)
 
 ### 服务器端部署
 
-![wps28.jpg](README.assets/wps28.jpg)
+![Untitled](README.assets/Untitled%2013.png)
 
-![wps29.jpg](README.assets/wps29.jpg)
+### 其他设备查看
 
-![wps39.jpg](README.assets/wps39.jpg)
+![Untitled](README.assets/Untitled%2014.png)
 
-![wps1.jpg](README.assets/wps1.jpg)
-
-![wps30.jpg](README.assets/wps30.jpg)
-
-![wps40.jpg](README.assets/wps40.jpg)
-
-![wps3.jpg](README.assets/wps3.jpg)
-
-![wps5.jpg](README.assets/wps5.jpg)
-
-### ### 其他设备查看
-
-![JFVQK4FRJVQ_L26HSB_tmb](./README.assets/JFVQK4FRJVQ_L26HSB_tmb.jpg)
-
-![1UVRQ[KL]ZE$WF9M_P7IUI7.jpg](README.assets/1UVRQKLZEWF9M_P7IUI7.jpg)
-
-![JFVQK4FRJVQ_L26HSB_tmb](./README.assets/JFVQK4FRJVQ_L26HSB_tmb.jpg)
-
-![V8C88EZ0CDAI3VFHNO_tmb](./README.assets/V8C88EZ0CDAI3VFHNO_tmb.jpg)
+![Untitled](README.assets/Untitled.jpeg)
 
 ## **底层实现**
 
 ---
 
 - 密码加密使用 根目录 [\app01\utils\encrypt.py](https://github.com/Nashi1436/PythonLessonTask_django_web/blob/main/app01/utils/encrypt.py) 下：`md5` 加密，数据库存储加密后密码
-- 监测站采集数据使用 根目录 [\app01\utils\station.py](https://github.com/Nashi1436/PythonLessonTask_django_web/blob/main/app01/utils/station.py) 下：`get_station`获取随机数据生成，后续有需要可改为pa'qv对应监测站数据
+
+![Untitled](README.assets/Untitled%206.png)
